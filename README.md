@@ -18,12 +18,14 @@ agent improves itself along two axes: **its environment, and its weights.**
 | **the record** | **[baliveau](https://github.com/jmars/baliveau)** | A flight recorder for agents. The system's every state is a content-addressed generation in a build store; activation goes through PID 1 as a transaction; a failed boot rolls forward by itself. The seats that *judge* — the oracle asking *is it better?*, the audit asking *is it honest?*, the reporter asking *is it documented?* — run host-side, outside the machine the agent controls, and the agent cannot write them. **A log the subject can rewrite is not a log.** |
 | **the language** | **[osier](https://github.com/jmars/osier)** | The language the agent authors components *in*. Branch-local row refinement for extensible records via GADTs (λρG) — a row equation never escapes its branch while a type equation coerces at the branch result. Elm→QBE compiler, self-hosting, 90 Lean theorems with 3 explicit axioms and zero `sorry`, and a one-command evidence chain that reprints every number the paper cites from a clean clone. |
 | **the engine** | **[aubier](https://github.com/jmars/aubier)** | The Mixture-of-Experts execution layer it all runs on: split each layer's experts by *where their weights live*, compute the parts concurrently on the devices that hold them, and sum — one code path from a single card (GPU hits, CPU misses, both at once) up to N devices. Carried as a fork of `llama.cpp`, where the per-layer hit/miss split is currently inexpressible. **Early; patches in flight.** |
+| **the weights** | **[taillis](https://github.com/jmars/taillis)** | What the weights *are*: per-expert quantization, so that a layer's 128 experts stop sharing one type because the file carries one type per tensor. Experts are grouped by measured routing hotness, each group carrying its own type, and each group arrives at the engine as a store it already knows how to compute and sum. It is a **residency** lever as much as a fidelity one — every byte off the expert set moves the engine's CPU/GPU split point — which is why it runs beside the engine work rather than after it. Mistral Small 4 is the only target. **Early; source downloading.** |
 
 The two axes are sequenced deliberately: the environment axis is where the judge exists, so the
-weights axis waits on it. Weight improvement is **on-policy distillation** — student rollouts under
-dense supervision from a teacher ([arXiv:2609.04172](https://arxiv.org/abs/2609.04172)), deferred
-until the harness is mostly done, because a change the store cannot describe is a change nobody can
-audit.
+weights axis waits on it. (What the weights *are* does not wait — that is **taillis**, and the engine
+needs it to run the weights at all.) Weight *improvement* is **on-policy distillation** — student
+rollouts under dense supervision from a teacher
+([arXiv:2609.04172](https://arxiv.org/abs/2609.04172)), deferred until the harness is mostly done,
+because a change the store cannot describe is a change nobody can audit.
 
 **[neoplatonic-library](https://github.com/jmars/neoplatonic-library)** runs alongside it and matters
 just as much — restored public-domain editions of the Neoplatonic tradition, where the repair log is
