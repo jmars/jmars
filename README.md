@@ -27,10 +27,19 @@ dense supervision from a teacher ([arXiv:2609.04172](https://arxiv.org/abs/2609.
 until the harness is mostly done, because a change the store cannot describe is a change nobody can
 audit.
 
-**Reproducibility is the discipline**: pre-registrations before the run, claim audits after, evidence
-deposits for everything. Every claim in those repos is marked MEASURED, INTERPRETATION or PROJECTION.
-A gate is an exit code, never the tail of stdout. A fix is proved by asymmetry — the probe fails
-before and passes after. A test that cannot fail is not a test.
+**[neoplatonic-library](https://github.com/jmars/neoplatonic-library)** runs alongside it and matters
+just as much — restored public-domain editions of the Neoplatonic tradition, where the repair log is
+the unit of scholarship: every emendation versioned, reasoned and witnessed, with the scan leaf it
+was read from. Still active, live at [neoplatonic-library.org](https://neoplatonic-library.org).
+
+**[fixpoint-linux](https://fixpointlinux.org)** is the systems side, and the ground the harness comes
+from: a Dhall-specified, self-hosting Linux system — state as content-addressed relations, every
+command able to show its own derivation, boot as a verdict. Bootable in the browser at the site.
+
+**Reproducibility is the discipline** — across all of it: pre-registrations before the run, claim
+audits after, evidence deposits for everything. Every claim in those repos is marked MEASURED,
+INTERPRETATION or PROJECTION. A gate is an exit code, never the tail of stdout. A fix is proved by
+asymmetry — the probe fails before and passes after. A test that cannot fail is not a test.
 
 ---
 
@@ -47,11 +56,12 @@ One idea — systems that apply to themselves — in four registers:
 
 ---
 
-## Earlier flagship work
+## Other work
 
 **[datalog-dafsa](https://github.com/jmars/datalog-dafsa)** — Datalog engine in Zig. Facts stored as
 a minimal-acyclic DAFSA, rules compiled to a semi-naive fixpoint VM, reads served from mmap'd
-snapshots. 306 tests green; hybrid lexical ∩ semantic search on top. *(The store beneath baliveau.)*
+snapshots. 306 tests green; hybrid lexical ∩ semantic search on top. *(The store beneath baliveau —
+in use, not retired.)*
 
 **[logical-english](https://github.com/jmars/logical-english)** — Kowalski's Logical English compiled
 to Datalog — and back. A bidirectional bridge: controlled natural language in, logic programs out,
@@ -66,11 +76,6 @@ tests.
 **[ouroboros](https://github.com/jmars/ouroboros)** — A metacircular JavaScript engine: a restricted
 subset of JS bootstrapping a TDOP parser and interpreter, climbing toward
 meta-vm-executing-meta-vm.
-
-**[neoplatonic-library](https://github.com/jmars/neoplatonic-library)** — Restored public-domain
-editions of the Neoplatonic tradition, where the repair log is the unit of scholarship: every
-emendation versioned, reasoned, and witnessed. Live at
-[neoplatonic-library.org](https://neoplatonic-library.org).
 
 ---
 
