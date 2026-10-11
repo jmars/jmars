@@ -1,5 +1,3 @@
-### Everything is a fixpoint if you squint. Below are the ones that run. 🌀
-
 I build systems that apply to themselves: a logic engine whose semantics is a least fixpoint, a
 language whose soundness argument is mechanized beside its source, papers whose every number is
 re-derivable from the committed artifact, and a library where every editorial decision is witnessed
@@ -40,19 +38,6 @@ command able to show its own derivation, boot as a verdict. Bootable in the brow
 audits after, evidence deposits for everything. Every claim in those repos is marked MEASURED,
 INTERPRETATION or PROJECTION. A gate is an exit code, never the tail of stdout. A fix is proved by
 asymmetry — the probe fails before and passes after. A test that cannot fail is not a test.
-
----
-
-## The theme, in four registers
-
-One idea — systems that apply to themselves — in four registers:
-
-| | |
-|---|---|
-| **Engines** | compute the fixpoint, serve it from a snapshot. |
-| **Languages** | let the machine read what you wrote. |
-| **Mechanization** | don't assert it; prove it beside the code. |
-| **Evidence** | every claim ships with the artifact that produced it. |
 
 ---
 
@@ -107,5 +92,3 @@ they belong to.
 
 **Fit:** Research engineering, programming languages, AI infrastructure — roles where the hard
 problem is the point, and the artifact has to run.
-
-The status emoji is a cyclone: a loop with no visible entry. This is not an accident.
