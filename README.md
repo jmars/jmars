@@ -1,8 +1,3 @@
-I build systems that apply to themselves: a logic engine whose semantics is a least fixpoint, a
-language whose soundness argument is mechanized beside its source, papers whose every number is
-re-derivable from the committed artifact, and a library where every editorial decision is witnessed
-by the scan leaf it was read from.
-
 **Current focus: Futaie** — a local-first AI system for running agents in an AI Act-compliant,
 EU-sovereign deployment. The model, the language and the record all live on hardware the operator
 owns, and the account of what the system did is readable by the operator and by a regulator without
@@ -36,11 +31,6 @@ was read from. Still active, live at [neoplatonic-library.org](https://neoplaton
 from: a Dhall-specified, self-hosting Linux system — state as content-addressed relations, every
 command able to show its own derivation, boot as a verdict. Bootable in the browser at the site.
 
-**Reproducibility is the discipline** — across all of it: pre-registrations before the run, claim
-audits after, evidence deposits for everything. Every claim in those repos is marked MEASURED,
-INTERPRETATION or PROJECTION. A gate is an exit code, never the tail of stdout. A fix is proved by
-asymmetry — the probe fails before and passes after. A test that cannot fail is not a test.
-
 ---
 
 ## Other work
@@ -52,16 +42,6 @@ snapshots. 306 tests green; hybrid lexical ∩ semantic search on top.
 **[logical-english](https://github.com/jmars/logical-english)** — Kowalski's Logical English compiled
 to Datalog — and back. A bidirectional bridge: controlled natural language in, logic programs out,
 derived facts readable again as English.
-
-**[selfreg-public](https://github.com/jmars/selfreg-public)** ·
-**[dpdr-public](https://github.com/jmars/dpdr-public)** — Three deposited papers: a control-theoretic
-model of self-regulation; self-application is not free — the monitoring channel is part of the
-failure channel; applied to a working agent, pre-registered, with a held-out task suite and sealed
-tests.
-
-**[ouroboros](https://github.com/jmars/ouroboros)** — A metacircular JavaScript engine: a restricted
-subset of JS bootstrapping a TDOP parser and interpreter, climbing toward
-meta-vm-executing-meta-vm.
 
 ---
 
@@ -76,21 +56,4 @@ meta-vm-executing-meta-vm.
 
 ---
 
-## Around the workshop
-
-Static Zig MCP client (`mcpc`), FST-based full-text indexer in Rust (`fst-indexer`), sandbox servers
-on pledge/seccomp/landlock, persistent knowledge-graph MCPs, and the Palimpsest intelligence toolkit
-they belong to.
-
----
-
-## Elsewhere
-
-- [blog.jaye.ch](https://blog.jaye.ch) — plain-language companion to the self-application papers
-- [fixpointlinux.org](https://fixpointlinux.org) — the systems side
-- [neoplatonic-library.org](https://neoplatonic-library.org) — the tradition side
-
----
-
-**Fit:** Research engineering, programming languages, AI infrastructure — roles where the hard
-problem is the point, and the artifact has to run.
+**Fit:** Research engineering, programming languages, AI infrastructure
