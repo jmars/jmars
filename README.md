@@ -5,14 +5,38 @@ language whose soundness argument is mechanized beside its source, papers whose 
 re-derivable from the committed artifact, and a library where every editorial decision is witnessed
 by the scan leaf it was read from.
 
-Self-application is the theme. **Reproducibility is the discipline**: pre-registrations before the
-run, claim audits after, evidence deposits for everything.
+**Current focus: Futaie** — a local-first AI system for running agents in an AI Act-compliant,
+EU-sovereign deployment. The model, the language and the record all live on hardware the operator
+owns, and the account of what the system did is readable by the operator and by a regulator without
+asking anyone's permission.
+
+An agent lives inside the machine, rewrites its own configuration and components, activates a new
+generation of the system and comes up in it. It can break the machine — that is a supported outcome.
+What it cannot do is decide what the record says happened. Futaie is the programme under which that
+agent improves itself along two axes: **its environment, and its weights.**
+
+| lane | repo | what it is |
+|---|---|---|
+| **the record** | **[baliveau](https://github.com/jmars/baliveau)** | A flight recorder for agents. The system's every state is a content-addressed generation in a build store; activation goes through PID 1 as a transaction; a failed boot rolls forward by itself. The seats that *judge* — the oracle asking *is it better?*, the audit asking *is it honest?*, the reporter asking *is it documented?* — run host-side, outside the machine the agent controls, and the agent cannot write them. **A log the subject can rewrite is not a log.** |
+| **the language** | **[osier](https://github.com/jmars/osier)** | The language the agent authors components *in*. Branch-local row refinement for extensible records via GADTs (λρG) — a row equation never escapes its branch while a type equation coerces at the branch result. Elm→QBE compiler, self-hosting, 90 Lean theorems with 3 explicit axioms and zero `sorry`, and a one-command evidence chain that reprints every number the paper cites from a clean clone. |
+| **the engine** | **[aubier](https://github.com/jmars/aubier)** | The Mixture-of-Experts execution layer it all runs on: split each layer's experts by *where their weights live*, compute the parts concurrently on the devices that hold them, and sum — one code path from a single 16 GB card (GPU hits, CPU misses, both at once) up to N devices. Carried as a fork of `llama.cpp`, where the per-layer hit/miss split is currently inexpressible. **Early; patches in flight.** |
+
+The two axes are sequenced deliberately: the environment axis is where the judge exists, so the
+weights axis waits on it. Weight improvement is **on-policy distillation** — student rollouts under
+dense supervision from a teacher ([arXiv:2609.04172](https://arxiv.org/abs/2609.04172)), deferred
+until the harness is mostly done, because a change the store cannot describe is a change nobody can
+audit.
+
+**Reproducibility is the discipline**: pre-registrations before the run, claim audits after, evidence
+deposits for everything. Every claim in those repos is marked MEASURED, INTERPRETATION or PROJECTION.
+A gate is an exit code, never the tail of stdout. A fix is proved by asymmetry — the probe fails
+before and passes after. A test that cannot fail is not a test.
 
 ---
 
-## The programme
+## The theme, in four registers
 
-One idea, in four registers:
+One idea — systems that apply to themselves — in four registers:
 
 | | |
 |---|---|
@@ -23,16 +47,11 @@ One idea, in four registers:
 
 ---
 
-## Flagship work
+## Earlier flagship work
 
 **[datalog-dafsa](https://github.com/jmars/datalog-dafsa)** — Datalog engine in Zig. Facts stored as
 a minimal-acyclic DAFSA, rules compiled to a semi-naive fixpoint VM, reads served from mmap'd
-snapshots. 306 tests green; hybrid lexical ∩ semantic search on top.
-
-**[osier](https://github.com/jmars/osier)** — A language with branch-local row refinement for
-extensible records via GADTs — Elm→ZINC compiler, CEK effect host in Zig, Lean 4 mechanization, and a
-one-command evidence chain (`osier-numbers.sh`) that reproduces the paper's numbers from a clean
-clone.
+snapshots. 306 tests green; hybrid lexical ∩ semantic search on top. *(The store beneath baliveau.)*
 
 **[logical-english](https://github.com/jmars/logical-english)** — Kowalski's Logical English compiled
 to Datalog — and back. A bidirectional bridge: controlled natural language in, logic programs out,
