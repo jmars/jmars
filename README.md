@@ -60,8 +60,7 @@ One idea — systems that apply to themselves — in four registers:
 
 **[datalog-dafsa](https://github.com/jmars/datalog-dafsa)** — Datalog engine in Zig. Facts stored as
 a minimal-acyclic DAFSA, rules compiled to a semi-naive fixpoint VM, reads served from mmap'd
-snapshots. 306 tests green; hybrid lexical ∩ semantic search on top. *(The store beneath baliveau —
-in use, not retired.)*
+snapshots. 306 tests green; hybrid lexical ∩ semantic search on top.
 
 **[logical-english](https://github.com/jmars/logical-english)** — Kowalski's Logical English compiled
 to Datalog — and back. A bidirectional bridge: controlled natural language in, logic programs out,
