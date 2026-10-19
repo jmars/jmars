@@ -23,6 +23,16 @@ rollouts under dense supervision from a teacher
 ([arXiv:2609.04172](https://arxiv.org/abs/2609.04172)), deferred until the harness is mostly done,
 because a change the store cannot describe is a change nobody can audit.
 
+**Experimental focus: [Egregore](https://github.com/jmars/egregore)** — the same question asked
+outside the machine. Futaie asks what one agent does to its own system while the record is held
+outside it; Egregore asks what a *population* does when nothing holds it at all. One file — an
+Actually Portable Executable carrying the harness, its configuration and its tools — copied onto a
+box with a goal, working toward it unattended, able to place copies of itself elsewhere. The
+subject is not the agent but the population: how one main goal decomposes into subgoals that get
+claimed, where work duplicates or dead-ends, what a fleet does while some of its members stop
+answering, and what the account of a run even means when no single machine can hold it. Early, and
+deliberately not a deployment tool — an instrument for behaviour that only appears at N > 1.
+
 **[neoplatonic-library](https://github.com/jmars/neoplatonic-library)** runs alongside it and matters
 just as much — restored public-domain editions of the Neoplatonic tradition, where the repair log is
 the unit of scholarship: every emendation versioned, reasoned and witnessed, with the scan leaf it
