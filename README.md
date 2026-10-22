@@ -1,3 +1,5 @@
+Systems engineer working on AI infrastructure, programming languages, and auditable agent runtimes
+
 **Current focus: Futaie** — a local-first AI system for running agents in an AI Act-compliant,
 EU-sovereign deployment. The model, the language and the record all live on hardware the operator
 owns, and the account of what the system did is readable by the operator and by a regulator without
