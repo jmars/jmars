@@ -66,6 +66,10 @@ derived facts readable again as English.
 - *Self-Application Is Not Free: the Monitoring Channel Is Part of the Failure Channel, and the Self
   Does Not Survive Its Own Reconstruction* —
   [doi:10.5281/zenodo.23128113](https://doi.org/10.5281/zenodo.23128113)
+- *Does the sleep paradigm survive a different substrate? A mechanism assay of dream-based
+  consolidation on a frozen 4-bit mixture of experts* —
+  [doi:10.5281/zenodo.23820950](https://doi.org/10.5281/zenodo.23820950)
+  ([source deposit](https://github.com/jmars/sleep-public))
 
 ---
 
