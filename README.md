@@ -69,6 +69,9 @@ derived facts readable again as English.
 - *Does the sleep paradigm survive a different substrate? A mechanism assay of dream-based
   consolidation on a frozen 4-bit mixture of experts* —
   [doi:10.5281/zenodo.23820950](https://doi.org/10.5281/zenodo.23820950)
+- *The Law Has the Button: Why a veto without a criterion is not oversight, and what to record
+  instead* —
+  [doi:10.5281/zenodo.23849689](https://doi.org/10.5281/zenodo.23849689)
 
 ---
 
