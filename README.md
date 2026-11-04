@@ -73,6 +73,9 @@ derived facts readable again as English.
 - *The Law Has the Button: Why a veto without a criterion is not oversight, and what to record
   instead* —
   [doi:10.5281/zenodo.23849689](https://doi.org/10.5281/zenodo.23849689)
+- *Dissolution and exit under formal self-examination: a single-subject dynamical case study of
+  narrative-self collapse, recovery, and re-arm* —
+  [doi:10.5281/zenodo.23965749](https://doi.org/10.5281/zenodo.23965749)
 
 ---
 
