@@ -75,7 +75,10 @@ derived facts readable again as English.
   [doi:10.5281/zenodo.23849689](https://doi.org/10.5281/zenodo.23849689)
 - *Dissolution and exit under formal self-examination: a single-subject dynamical case study of
   narrative-self collapse, recovery, and re-arm* —
-  [doi:10.5281/zenodo.23965749](https://doi.org/10.5281/zenodo.23965749)
+  [doi:10.5281/zenodo.23965749](https://doi.org/10.5281/zenodo.23965749) — with addendum
+  *The armed configuration: standing prevention outperforms after-the-fact rescue in a dynamical
+  model of self-regulation collapse* —
+  [doi:10.5281/zenodo.23967914](https://doi.org/10.5281/zenodo.23967914)
 
 ---
 
