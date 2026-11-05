@@ -63,7 +63,10 @@ derived facts readable again as English.
 
 - *Self-Application as the Common Source of Benefit and Failure: A Control-Theoretic Model of
   Self-Regulation, Its Escapes, and a Standing-Cost Budget* —
-  [doi:10.5281/zenodo.22943641](https://doi.org/10.5281/zenodo.22943641)
+  [doi:10.5281/zenodo.22943641](https://doi.org/10.5281/zenodo.22943641) — with addendum
+  *The armed configuration: standing prevention outperforms after-the-fact rescue in a dynamical
+  model of self-regulation collapse* —
+  [doi:10.5281/zenodo.23967914](https://doi.org/10.5281/zenodo.23967914)
 - *Self-Application Is Not Free: the Monitoring Channel Is Part of the Failure Channel, and the Self
   Does Not Survive Its Own Reconstruction* —
   [doi:10.5281/zenodo.23128113](https://doi.org/10.5281/zenodo.23128113)
@@ -75,10 +78,7 @@ derived facts readable again as English.
   [doi:10.5281/zenodo.23849689](https://doi.org/10.5281/zenodo.23849689)
 - *Dissolution and exit under formal self-examination: a single-subject dynamical case study of
   narrative-self collapse, recovery, and re-arm* —
-  [doi:10.5281/zenodo.23965749](https://doi.org/10.5281/zenodo.23965749) — with addendum
-  *The armed configuration: standing prevention outperforms after-the-fact rescue in a dynamical
-  model of self-regulation collapse* —
-  [doi:10.5281/zenodo.23967914](https://doi.org/10.5281/zenodo.23967914)
+  [doi:10.5281/zenodo.23965749](https://doi.org/10.5281/zenodo.23965749)
 
 ---
 
