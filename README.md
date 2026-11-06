@@ -10,6 +10,16 @@ generation of the system and comes up in it. It can break the machine — that i
 What it cannot do is decide what the record says happened. Futaie is the programme under which that
 agent improves itself along two axes: **its environment, and its weights.**
 
+**Current area of research: dependency-derived regulators.** The standard safety
+constraint is imposed on the agent from outside, and the field's own measured result is that
+imposed constraints fail under optimization: an agent that can revise its objective gains by
+revising the constraint away. The current work derives constraints from the other side — from
+the objective's own dependency structure. If a drive's chain terminates at knowers (the minds
+its optimization consumes), an honest representation of that dependency yields knowers-protective
+constraints endogenously, with revision re-creating the starvation the representation records.
+The position paper, the runnable discriminator protocol and the limits are:
+[jmars/terminus-protocol](https://github.com/jmars/terminus-protocol).
+
 | lane | repo | what it is |
 |---|---|---|
 | **the record** | **[baliveau](https://github.com/jmars/baliveau)** | A flight recorder for agents. The system's every state is a content-addressed generation in a build store; activation goes through PID 1 as a transaction; a failed boot rolls forward by itself. The seats that *judge* — the oracle asking *is it better?*, the audit asking *is it honest?*, the reporter asking *is it documented?* — run host-side, outside the machine the agent controls, and the agent cannot write them. **A log the subject can rewrite is not a log.** |
@@ -76,6 +86,8 @@ derived facts readable again as English.
 - *The Law Has the Button: Why a veto without a criterion is not oversight, and what to record
   instead* —
   [doi:10.5281/zenodo.23849689](https://doi.org/10.5281/zenodo.23849689)
+- *The Chain Terminates at Knowers: Dependency-Derived Regulators for Optimizing Agents, a
+  Position and Protocol* — [doi:10.5281/zenodo.23993140](https://doi.org/10.5281/zenodo.23993140)
 - *Dissolution and exit under formal self-examination: a single-subject dynamical case study of
   narrative-self collapse, recovery, and re-arm* —
   [doi:10.5281/zenodo.23965749](https://doi.org/10.5281/zenodo.23965749)
