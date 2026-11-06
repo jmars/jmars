@@ -1,15 +1,5 @@
 Systems engineer working on AI infrastructure, programming languages, and auditable agent runtimes
 
-**Current focus: Futaie** — a local-first AI system for running agents in an AI Act-compliant,
-EU-sovereign deployment. The model, the language and the record all live on hardware the operator
-owns, and the account of what the system did is readable by the operator and by a regulator without
-asking anyone's permission.
-
-An agent lives inside the machine, rewrites its own configuration and components, activates a new
-generation of the system and comes up in it. It can break the machine — that is a supported outcome.
-What it cannot do is decide what the record says happened. Futaie is the programme under which that
-agent improves itself along two axes: **its environment, and its weights.**
-
 **Current area of research: dependency-derived regulators.** The standard safety
 constraint is imposed on the agent from outside, and the field's own measured result is that
 imposed constraints fail under optimization: an agent that can revise its objective gains by
@@ -19,6 +9,17 @@ its optimization consumes), an honest representation of that dependency yields k
 constraints endogenously, with revision re-creating the starvation the representation records.
 The position paper, the runnable discriminator protocol and the limits are:
 [jmars/terminus-protocol](https://github.com/jmars/terminus-protocol).
+
+
+**Current engineering focus: Futaie** — a local-first AI system for running agents in an AI Act-compliant,
+EU-sovereign deployment. The model, the language and the record all live on hardware the operator
+owns, and the account of what the system did is readable by the operator and by a regulator without
+asking anyone's permission.
+
+An agent lives inside the machine, rewrites its own configuration and components, activates a new
+generation of the system and comes up in it. It can break the machine — that is a supported outcome.
+What it cannot do is decide what the record says happened. Futaie is the programme under which that
+agent improves itself along two axes: **its environment, and its weights.**
 
 | lane | repo | what it is |
 |---|---|---|
