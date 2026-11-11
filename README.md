@@ -1,6 +1,41 @@
-Systems engineer working on AI infrastructure, programming languages, and auditable agent runtimes
+Systems engineer and formal-methods researcher: programming languages, mechanized type theory, and
+auditable AI infrastructure. The work now has one centerpiece.
 
-**Current area of research: dependency-derived regulators.** The standard safety
+**The centerpiece: the Care Calculus.** A multi-sorted linear type theory for resource flows that
+cannot be duplicated or destroyed — linear logic extended with a coalgebraic generator (`gen`),
+guarded recursion (`fix`, carrying the intuitionistic-context side condition that is its price), and
+resource-linear destructors (`red`, `obj`, `terminate`). It is mechanized in Lean 4.35.0 with no
+external dependencies: 192 theorem declarations, no Mathlib, every public theorem's axiom set
+audited down to the standard three, `sorryAx` confined to two named conjectures. The object of study
+is the grammar's own conservation laws. Contraction (`[content] ⊬ content ⊗ content`) and vanishing
+(`[content] ⊬ unit`) are theorems of the grammar rather than postulates laid on it, at five fragment
+strengths each, the deepest two integrating the care machinery — so No-Cloning and Unitarity are
+structural facts about a resource discipline, not assumptions imported from physics. On that basis
+the calculus carries a diagnostic claim (an objective whose reduction chain does not terminate at
+knowers admits no endogenous regulator, so no protective constraint is derivable from its own
+structure) and a conditional constructive claim (where the chain does terminate at knowers,
+protection is derivable rather than trained in, negotiated or imposed). The unrestricted classical
+statements remain named conjectures, and the mechanization is explicit about that frontier. Paper
+and mechanization: [jmars/coglib](https://github.com/jmars/coglib).
+
+**In plain terms.** Take something an optimizing system does, and ask what it spends to do it:
+content it cannot make more of, attention it cannot get back, the work of minds other than its own.
+The Care Calculus is a grammar in which that spending is written down, and in which copying it or
+throwing it away is not discouraged but *untypable* — no well-typed program turns one thing you were
+given into two, and none turns it into nothing at all. Two things then follow without anyone adding
+a rule about ethics. An objective that never bottoms out at the minds it consumes cannot generate
+care for them from its own structure, however it is trained: there is nowhere for the protective
+constraint to come from. An objective that does bottom out there gets the constraint for free,
+because an honest account of what it depends on is already in the typing. That is the whole claim,
+and it is small enough for a machine to check — which is what the Lean development is for.
+
+**It is now the direction of the research.** What follows is what surrounds it: the papers that
+argued its informal layer before it existed — the derivation of care in prose is now a conditional
+theorem with named assumptions, and the diagnostic is an impossibility result whose content is
+located, honestly, in its own definitions — and the systems engineering that a well-typed agent
+would eventually have to sit on: an auditable runtime, a self-hosting system, a population harness.
+
+**Where it comes from: the dependency-derived regulator program.** The standard safety
 constraint is imposed on the agent from outside, and the field's own measured result is that
 imposed constraints fail under optimization: an agent that can revise its objective gains by
 revising the constraint away. The current work derives constraints from the other side — from
@@ -11,35 +46,9 @@ The position paper, the runnable discriminator protocol and the limits are:
 [jmars/terminus-protocol](https://github.com/jmars/terminus-protocol).
 
 
-**Current engineering focus: Futaie** — a local-first AI system for running agents in an AI Act-compliant,
-EU-sovereign deployment. The model, the language and the record all live on hardware the operator
-owns, and the account of what the system did is readable by the operator and by a regulator without
-asking anyone's permission.
-
-An agent lives inside the machine, rewrites its own configuration and components, activates a new
-generation of the system and comes up in it. It can break the machine — that is a supported outcome.
-What it cannot do is decide what the record says happened. Futaie is the programme under which that
-agent improves itself along two axes: **its environment, and its weights.**
-
-| lane | repo | what it is |
-|---|---|---|
-| **the record** | **[baliveau](https://github.com/jmars/baliveau)** | A flight recorder for agents. The system's every state is a content-addressed generation in a build store; activation goes through PID 1 as a transaction; a failed boot rolls forward by itself. The seats that *judge* — the oracle asking *is it better?*, the audit asking *is it honest?*, the reporter asking *is it documented?* — run host-side, outside the machine the agent controls, and the agent cannot write them. **A log the subject can rewrite is not a log.** |
-| **the record, exported** | **[martelage](https://github.com/jmars/martelage)** | The evidence-package standard: the form the record takes when it leaves the machine. A directory of hash-chained record files plus one manifest that states its own scope, its place in a package chain, and whether anyone other than the operator holds its digest. Checkable offline with a POSIX shell and `sha256sum`; a reference validator that names the input it lacks rather than implying a pass, 33 vectors with their expected results, and a mutation proving the validator can fail. Published on its own so a project with no baliveau in it can adopt it — baliveau is its first producer, not its definition. |
-| **the language** | **[osier](https://github.com/jmars/osier)** | The language the agent authors components *in*. Elm-Descendant, Branch-local row refinement for extensible records via GADTs (λρG) — a row equation never escapes its branch while a type equation coerces at the branch result. Osier→QBE compiler, self-hosting, 90 Lean theorems with 3 explicit axioms and zero `sorry` |
-| **the engine** | **[aubier](https://github.com/jmars/aubier)** | The Mixture-of-Experts execution layer it all runs on: split each layer's experts by *where their weights live*, compute the parts concurrently on the devices that hold them, and sum — one code path from a single card (GPU hits, CPU misses, both at once) up to N devices. Carried as a fork of `llama.cpp`, where the per-layer hit/miss split is currently inexpressible. |
-| **the weights** | **[taillis](https://github.com/jmars/taillis)** | What the weights *are*: per-expert quantization, so that a layer's 128 experts stop sharing one type because the file carries one type per tensor. Experts are grouped by measured routing hotness, each group carrying its own type, and each group arrives at the engine as a store it already knows how to compute and sum. It is a **residency** lever as much as a fidelity one — every byte off the expert set moves the engine's CPU/GPU split point — which is why it runs beside the engine work rather than after it. Mistral Small 4 is the only target. |
-| **the machine** | **[souche](https://github.com/jmars/souche)** | The emulator the agent's machine runs in: a native C port of v86 — the CPU core and the devices, an interpreter, a decoded-block cache and an x86-64 JIT, each generated from the reference's own instruction table and gated against it by byte-identical machine-state transcripts. cosmocc makes it one executable on amd64 and aarch64, so the same guest image boots anywhere. Roughly 7× the interpreter it started as. |
-
-The two axes are sequenced deliberately: the environment axis is where the judge exists, so the
-weights axis waits on it. (What the weights *are* does not wait — that is **taillis**, and the engine
-needs it to run the weights at all.) Weight *improvement* is **on-policy distillation** — student
-rollouts under dense supervision from a teacher
-([arXiv:2609.04172](https://arxiv.org/abs/2609.04172)), deferred until the harness is mostly done,
-because a change the store cannot describe is a change nobody can audit.
-
-**Experimental focus: [Egregore](https://github.com/jmars/egregore)** — the same question asked
-outside the machine. Futaie asks what one agent does to its own system while the record is held
-outside it; Egregore asks what a *population* does when nothing holds it at all. One file — an
+**Experimental focus: [Egregore](https://github.com/jmars/egregore)** — the calculus at
+population scale. Where the calculus runs over one agent's resource discipline, Egregore asks what
+a *population* does when nothing holds it at all. One file — an
 Actually Portable Executable carrying the harness, its configuration and its tools — copied onto a
 box with a goal, working toward it unattended, able to place copies of itself elsewhere. The
 subject is not the agent but the population: how one main goal decomposes into subgoals that get
@@ -47,13 +56,14 @@ claimed, where work duplicates or dead-ends, what a fleet does while some of its
 answering, and what the account of a run even means when no single machine can hold it. Early, and
 deliberately not a deployment tool — an instrument for behaviour that only appears at N > 1.
 
-**[neoplatonic-library](https://github.com/jmars/neoplatonic-library)** runs alongside it and matters
-just as much — restored public-domain editions of the Neoplatonic tradition, where the repair log is
-the unit of scholarship: every emendation versioned, reasoned and witnessed, with the scan leaf it
-was read from. Still active, live at [neoplatonic-library.org](https://neoplatonic-library.org).
+**[neoplatonic-library](https://github.com/jmars/neoplatonic-library)** runs alongside the research
+and matters just as much — restored public-domain editions of the Neoplatonic tradition, where the
+repair log is the unit of scholarship: every emendation versioned, reasoned and witnessed, with the
+scan leaf it was read from. Still active, live at
+[neoplatonic-library.org](https://neoplatonic-library.org).
 
-**[fixpoint-linux](https://fixpointlinux.org)** is the systems side, and the ground the harness comes
-from: a Dhall-specified, self-hosting Linux system — state as content-addressed relations, every
+**[fixpoint-linux](https://fixpointlinux.org)** is the systems side: a Dhall-specified, self-hosting
+Linux system — state as content-addressed relations, every
 command able to show its own derivation, boot as a verdict. Bootable in the browser at the site.
 
 ---
@@ -72,6 +82,9 @@ derived facts readable again as English.
 
 ## Papers
 
+- *The Care Calculus: A Mechanized Linear Type Theory for Safe Agents* —
+  [doi:10.5281/zenodo.24122159](https://doi.org/10.5281/zenodo.24122159) — with the mechanization
+  [jmars/coglib](https://github.com/jmars/coglib)
 - *Self-Application as the Common Source of Benefit and Failure: A Control-Theoretic Model of
   Self-Regulation, Its Escapes, and a Standing-Cost Budget* —
   [doi:10.5281/zenodo.22943641](https://doi.org/10.5281/zenodo.22943641) — with addendum
