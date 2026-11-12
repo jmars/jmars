@@ -55,6 +55,9 @@ to Datalog and back.
 
 ## Papers
 
+- *The Guarded Line: What Metacircular Proof Theory and Self-Model Dynamics Share* —
+  [doi:10.5281/zenodo.24148640](https://doi.org/10.5281/zenodo.24148640) — with the paper, citation
+  ledger and gates [jmars/isomorphism-public](https://github.com/jmars/isomorphism-public)
 - *The Care Calculus: A Mechanized Linear Type Theory for Safe Agents* —
   [doi:10.5281/zenodo.24122159](https://doi.org/10.5281/zenodo.24122159) — with the mechanization
   [jmars/coglib](https://github.com/jmars/coglib)
