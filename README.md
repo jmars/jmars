@@ -55,7 +55,7 @@ to Datalog and back.
 
 ## Papers
 
-- *The Guarded Syntax: A String-Diagram Notation for Linear Resource Calculi* —
+- *The Guarded Syntax: A Notation for Linear Resource Calculi* —
   [doi:10.5281/zenodo.24221796](https://doi.org/10.5281/zenodo.24221796) — with the LaTeX source and
   gates [jmars/notation-public](https://github.com/jmars/notation-public)
 - *The Guarded Line: What Metacircular Proof Theory and Self-Model Dynamics Share* —
