@@ -4,7 +4,7 @@ auditable AI infrastructure. The research now has one object.
 **The Care Calculus** is a multi-sorted linear type theory for resource flows that cannot be
 duplicated or destroyed. To linear logic it adds a coalgebraic generator (`gen`), guarded
 recursion (`fix`), and resource-linear destructors (`red`, `obj`, `terminate`); it is mechanized
-in Lean 4 with no external dependencies — 962 theorems, every axiom set audited, **`sorryAx` nowhere
+in Lean 4 with no external dependencies — 956 theorems, every axiom set audited, **`sorryAx` nowhere
 in the development**: the standard three axioms and nothing else. It ships as **two formal systems**,
 because the boundary between them is measured rather than asserted.
 
@@ -36,6 +36,11 @@ being one-sided: it is now **proved** (`no_contraction_content`, by a monotone c
 term spends one content hypothesis as two. So the two unrestricted laws are settled in *opposite*
 directions, and that is what makes the boundary a measurement rather than a preference: the guard is
 not protecting against both laws failing, it is protecting against the one that does.
+
+Both decisions fit in one file: [`reproducer/minimal-reproducer.lean`](https://github.com/jmars/coglib/blob/main/reproducer/minimal-reproducer.lean)
+is ILL's natural deduction plus the two deltas, the counterexample, the counting model, and the
+check that the same model accepts the counterexample — ~430 lines, no imports, no Mathlib, no build,
+and the gate compiles it so it cannot rot.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/systems-dark.svg">
