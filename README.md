@@ -4,14 +4,17 @@ auditable AI infrastructure. The research now has one object.
 **The Care Calculus** is a multi-sorted linear type theory for resource flows that cannot be
 duplicated or destroyed. To linear logic it adds a coalgebraic generator (`gen`), guarded recursion
 (`fix`), and resource-linear destructors (`red`, `obj`, `terminate`); it is mechanized in Lean 4 with
-no external dependencies — 192 theorems, every axiom set audited, `sorryAx` confined to two named
-conjectures. Contraction and vanishing are theorems of the grammar, not postulates: a derivation of
-either would *be* a cloner or an eraser, so no-cloning and unitarity come out as structural facts
-about a resource discipline. On that base sit two claims — an objective whose reduction chain never
-reaches the minds it consumes has no endogenous regulator (diagnostic); one whose chain does reach
-them derives protection from its own structure rather than having it imposed (constructive, with
-named assumptions). The unrestricted linearity statements remain named conjectures; everything
-beneath them is proven. Paper and mechanization: [jmars/coglib](https://github.com/jmars/coglib).
+no external dependencies — 948 theorems, every axiom set audited, `sorryAx` confined to a named
+allowlist. It ships as **two formal systems**, because the boundary between them is measured rather
+than asserted. In the *Guarded* kernel, contraction and vanishing are absolute theorems of the
+grammar, not postulates: a derivation of either would *be* a cloner or an eraser. In the
+*unrestricted* calculus the guard is gone and they are not free — vanishing is **refuted** by a
+machine-checked counterexample (`extractor_exists`, a `[content] ⊢ unit` derivation whose lete/pair
+exchange spends the token), and contraction remains the open named conjecture. On that base sit two
+claims — an objective whose reduction chain never reaches the minds it consumes has no endogenous
+regulator (diagnostic); one whose chain does reach them derives protection from its own structure
+rather than having it imposed (constructive, with named assumptions). Paper and mechanization:
+[jmars/coglib](https://github.com/jmars/coglib).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/calculus-dark.svg">
