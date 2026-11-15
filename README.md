@@ -4,13 +4,13 @@ auditable AI infrastructure. The research now has one object.
 **The Care Calculus** is a multi-sorted linear type theory for resource flows that cannot be
 duplicated or destroyed. To linear logic it adds a coalgebraic generator (`gen`), guarded
 recursion (`fix`), and resource-linear destructors (`red`, `obj`, `terminate`); it is mechanized
-in Lean 4 with no external dependencies — 951 theorems, every axiom set audited, `sorryAx`
-confined to a named allowlist. It ships as **two formal systems**, because the boundary between
-them is measured rather than asserted.
+in Lean 4 with no external dependencies — 962 theorems, every axiom set audited, **`sorryAx` nowhere
+in the development**: the standard three axioms and nothing else. It ships as **two formal systems**,
+because the boundary between them is measured rather than asserted.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/calculus-dark.svg">
-  <img src="diagrams/calculus-light.svg" width="100%" alt="The Guarded kernel at a glance: knower K is the one duplicable resource; gen produces content together with a knower; cons needs a guarded stream; red yields knowledge and obj yields the objective's value; terminate exits to an inert trace that nothing consumes. In this system, copying content or erasing it is untypable. Unrestricted, erasing it is typable — the Extractor — and only copying stays untypable.">
+  <img src="diagrams/calculus-light.svg" width="100%" alt="The Guarded kernel at a glance: knower K is the one duplicable resource; gen produces content together with a knower; cons needs a guarded stream; red yields knowledge and obj yields the objective's value; terminate exits to an inert trace that nothing consumes. In this system, copying content or erasing it is untypable. Unrestricted, erasing it is typable — the structural counterexample — and only copying stays untypable.">
 </picture>
 
 *The Guarded kernel* proves both linearity laws as absolute theorems of the grammar — a
@@ -24,16 +24,22 @@ is exactly the one the counterexample below needs.
 
 *The unrestricted calculus* is the adversarial baseline, and it is where the decisive result
 lives. With the guard gone, vanishing is not merely unproven — it is **refuted**, by a
-machine-checked derivation (`extractor_exists`). The content token is spent as the head of a
+machine-checked derivation (`unrestricted_counterexample`). The content token is spent as the head of a
 self-sustaining epistemic cycle; a `lete`/`pair` round trip reorders the context and brings the
 knower pocket in front of it; `red` reads the stream; and the reading is discarded. The input is
 consumed and the empty signal is returned. **[MEASURED]** — with three scope facts the kernel
 also checks: the token is not destroyed unused (it is read exactly once), no knower value is ever
 synthesized, and the witness is not cut-free, so every cut-free fragment theorem stands.
 
+Contraction in that same system went the other way, and it is the half that keeps the result from
+being one-sided: it is now **proved** (`no_contraction_content`, by a monotone counting model) — no
+term spends one content hypothesis as two. So the two unrestricted laws are settled in *opposite*
+directions, and that is what makes the boundary a measurement rather than a preference: the guard is
+not protecting against both laws failing, it is protecting against the one that does.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="diagrams/systems-dark.svg">
-  <img src="diagrams/systems-light.svg" width="100%" alt="Two calculi side by side. Left, UNRESTRICTED (the adversarial baseline): content is spent as the head of an epistemic cycle (cons + fix), a lete/pair swap reorders the context, red reads the stream, and a lambda binding a knower discards the reading and returns unit — the Extractor, a valid derivation, not an exploit. Right, GUARDED (the ArmedSetup): no discard (weak is banned), no fake knowers, the guard inherited rather than added; and the archive is legal, content yields trace, recorded rather than discarded. Both laws are absolute theorems in the kernel. The strip below states the boundary as the machines report it: extractor_exists means admitted, extractor_not_armed means forbidden twice. Not a proof of safety — a proof of why safety requires a structural guard.">
+  <img src="diagrams/systems-light.svg" width="100%" alt="Two calculi side by side. Left, UNRESTRICTED (the adversarial baseline): content is spent as the head of an epistemic cycle (cons + fix), a lete/pair swap reorders the context, red reads the stream, and a lambda binding a knower discards the reading and returns unit — the counterexample, a valid derivation, not an exploit. Right, GUARDED (the ArmedSetup): no discard (weak is banned), no fake knowers, the guard inherited rather than added; and the archive is legal, content yields trace, recorded rather than discarded. Both laws are absolute theorems in the kernel. The strip below states the boundary as the machines report it: extractor_exists means admitted, extractor_not_armed means forbidden twice. Not a proof of safety — a proof of why safety requires a structural guard.">
 </picture>
 
 The point is not that one system is better argued than the other. **The dangerous system is

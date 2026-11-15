@@ -23,7 +23,7 @@
 <text x="230" y="292" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#b3261e">the DISCARD (weak)</text>
 <text x="30" y="326" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#59636e">A valid derivation, not an exploit.</text>
 <text x="30" y="344" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#59636e">Input consumed, empty signal returned.</text>
-<text x="30" y="364" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#b3261e">extractor_exists ⇒ a derivable tree</text>
+<text x="30" y="364" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#b3261e">unrestricted_counterexample ⇒ a derivable tree</text>
 <text x="450" y="100" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0a5cc4">GUARDED</text>
 <text x="524" y="100" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#59636e">the safe kernel (ArmedSetup)</text>
 <rect x="450" y="112" width="400" height="196" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
@@ -43,6 +43,6 @@
 <text x="450" y="346" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#0a5cc4">no_vanishing_restricted · no_contraction_restricted</text>
 <rect x="30" y="382" width="820" height="84" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
 <text x="48" y="408" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#1f2328">What the machines say</text>
-<text x="48" y="430" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="400" fill="#59636e">extractor_exists ⇒ admitted     ·     extractor_not_armed ⇒ forbidden twice</text>
+<text x="48" y="430" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="400" fill="#59636e">unrestricted_counterexample ⇒ admitted     ·     counterexample_not_armed ⇒ forbidden twice</text>
 <text x="48" y="452" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328">Not a proof of safety — a proof of why safety requires a structural guard.</text>
 </svg>
