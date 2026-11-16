@@ -95,6 +95,10 @@ to Datalog and back.
 
 ## Papers
 
+- *Conservation as Grammar: No-Cloning and Unitarity as Structural Theorems of a Guarded Linear
+  Calculus, with a Holographic Resolution Bound* —
+  [doi:10.5281/zenodo.24281490](https://doi.org/10.5281/zenodo.24281490) — with the runnable
+  simulator [jmars/physical-iso](https://github.com/jmars/physical-iso)
 - *The Guarded Syntax: A Notation for Linear Resource Calculi* —
   [doi:10.5281/zenodo.24221796](https://doi.org/10.5281/zenodo.24221796) — with the LaTeX source and
   gates [jmars/notation-public](https://github.com/jmars/notation-public)
